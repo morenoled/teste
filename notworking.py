@@ -7,7 +7,7 @@ def auth_required(f):
     @wraps(f)
     def decorated(*orgs, **kwargs):
         auth = request.authorization
-        if auth and auth.username == 'username' and auth.password == 'password':
+        if auth and auth.username == 'username1' and auth.password == 'password':
             return f(*args, **kwargs)
         
         return make_response('Could not verufy your login!', 401,{'WWW-Authenticate': 'Basic realm="Login Required"'} )
